@@ -3,7 +3,7 @@
 	  overflow: hidden;
 	  padding:0px !important;
 	 }
-	.container .text-center{
+.text-center{
 	  z-index: 1000 !important;
 	  width: 100%;
 	}
@@ -24,6 +24,7 @@
 	width:100%;
 	z-index:5;
 	  }
+
 	#video-background{
 	background-size: cover;
 	transition: 1s opacity;

@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
 
 	def index
-		@projects = Project.all
+		@projects = Project.search(params[:search])
 		#@displayed.projects = Project.take(4)
 	end
 
@@ -63,6 +63,7 @@ private
 	def project_params
 		params.require(:project).permit(:title, :summary, :description, :goal, :image_url, :expiration_date, :category_id)
 	end
+
 end
 
 

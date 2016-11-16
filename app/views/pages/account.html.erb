@@ -1,0 +1,67 @@
+<div class="container">
+	<div class="row">
+		<h1 class="text-center">Welcome, aboard!</h1><br>
+		
+	</div><br>
+	<div class="row">
+		
+		<div class="col-md-4">
+			
+				<h3 class="text-center">Your Projects</h3>				
+					
+					<table class="table table-condensed">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Project Name</th>
+								<th>Goal</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @projects.each do |project| %>
+							<tr>
+								<td><%= project.id %></td>
+								<td><%= link_to project.title, project_path(project) %></td>
+								<td><%= project.goal %></td>
+								<td><%= link_to "View", "#" %></td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
+			
+		</div>
+	
+		<div class="col-md-4">
+		
+				<h3 class="text-center">Backed Projects</h3>
+
+					<table class="table table-condensed">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Project Name</th>
+								<th>Donation</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+					</tbody>
+					</table>
+
+		</div>
+
+		<div class="col-md-4">
+		
+				<h3 class="text-center">Skills Offered</h3>
+
+			
+		
+		</div>
+
+		<div class="col-md-6 text-center"><%= link_to "New Project", new_project_path, class: "btn btn-default btn-block" %></div>
+	</div>
+
+
+</div>
+

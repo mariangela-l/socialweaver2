@@ -1,19 +1,15 @@
 <div class="col-md-4 col-sm-6 col-xs-12">
-<div class="project-box">
-	<%= link_to image_tag(project.image_url, alt: project.title, width: '100%', height: '200px'), project_path(project) %>
-<div class="description-box">
-	<div class="title">
-	<%= link_to project.title, "#" %>
+	<div class="thumbnail">
+		<%= link_to image_tag(project.image_url, alt: project.title, class: 'responsive'), project_path(project) %>
+		<div class="caption">
+			<p><%= project.title %></p>
+			<p><%= project.summary %></p>
+			<p>Project goal <%= project.goal %><span class="label">days to go</span></p>
+			<p><%= link_to "More info", project_path(project), class: 'btn btn-success btn-offset-right' %></p>
+		</div>
 	</div>
-	<div class="description">
-		<%= project.summary %>
-	</div>
+</div>
 
-<div class="stats">
-		<ul>
-			<li><%= project.goal %> <br><span class="label">days to go</span></li>
-		</ul>
-	</div>
-</div>
-</div>
-</div>
+
+
+
