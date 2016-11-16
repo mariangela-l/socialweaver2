@@ -1,0 +1,19 @@
+<div class="col-md-4 col-sm-6 col-xs-12">
+<div class="project-box">
+	<%= link_to image_tag(project.image_url, alt: project.title, width: '100%', height: '200px'), project_path(project) %>
+<div class="description-box">
+	<div class="title">
+	<%= link_to project.title, "#" %>
+	</div>
+	<div class="description">
+		<%= project.summary %>
+	</div>
+
+<div class="stats">
+		<ul>
+			<li><%= project.goal %> <br><span class="label">days to go</span></li>
+		</ul>
+	</div>
+</div>
+</div>
+</div>

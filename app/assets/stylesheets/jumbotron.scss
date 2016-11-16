@@ -1,0 +1,42 @@
+	.jumbotron{
+	  position: relative;
+	  overflow: hidden;
+	  padding:0px !important;
+	 }
+	.container .text-center{
+	  z-index: 1000 !important;
+	  width: 100%;
+	}
+	.video-background:before{
+	 left: 0;
+	 right: 0;
+	 top: 0;
+	 bottom: 0;
+	 position: absolute;
+	 content: "";
+	 background-color: #000;
+	 opacity: 0.39;
+	 z-index: 6;
+	}
+	.video-background {
+	position: relative; 
+	background: #222;
+	width:100%;
+	z-index:5;
+	  }
+	#video-background{
+	background-size: cover;
+	transition: 1s opacity;
+	}
+
+	.cover-text{
+	position:absolute;
+	width:100%;
+	text-align:center;
+	z-index:9999;
+	top:5em;
+	}
+
+	.cover-text h1, .cover-text p{
+	color:#fff !important;
+	 }

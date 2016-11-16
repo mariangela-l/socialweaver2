@@ -1,0 +1,11 @@
+<%= simple_form_for(@project, html: {class: 'form-horizontal'}) do |f| %>
+	<%= f.input :title %>
+	<%= f.input :summary, label: false, placeholder: "brief description" %>
+	<%= f.input :description, as: :text %>
+	<%= f.input :image_url %>
+	<%= f.input :goal %>
+
+	<div class="actions">
+		<%= f.button :submit %>
+	</div>
+<% end %>
