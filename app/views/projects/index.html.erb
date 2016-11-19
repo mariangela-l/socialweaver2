@@ -1,14 +1,41 @@
 
-<div class="container">
-	<h3 class="project-subtitle">Our Projects</h3>
+<div class="container"> 
+	
 	<div class="row">
-		<%= render @projects %>
+		
+			<% if @projects.count == 0 %>
+			<div class="text-center">
+				<h2>There is no books in this category.</h2>
+				<h3>Would you like to create your first project?</h3>
+			</div>
+			<div class="col-md-4 col-md-offset-4">
+				<p><%= link_to "Create", new_project_path, class: "btn btn-success btn-block" %></p>
+			</div>
+		
 	</div>
+
+			<% else %>
+
+	<div class= "text-center">
+		<h3>Feel free to explore the projects!!</h3>
+	<div>
+	        
+		<ul class="nav navbar-nav">
+			<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<% Category.all.each do |category| %>
+						<li>
+							<%= link_to category.name, projects_path(category: category.name), class: "link" %>
+						</li>
+						<% end %>
+					</ul>
+			</li>
+		</ul>
+		<div class="col-md-12">
+			<%= render @projects %>
+		</div>
+		
+<% end %>
 </div>
 
-
-<div class="container text-center">
-	<br><br><br>
-	<h2>Create your first project</h2>
-	<%= link_to "Start_project", "#", class: "btn btn-success btn-lg" %>
-</div>

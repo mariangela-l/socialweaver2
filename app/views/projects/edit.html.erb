@@ -1,6 +1,14 @@
 <div class="container">
 	<h1>Edit Project</h1>
-	<%= render 'form' %>
+	
+	<%= simple_form_for(@project, html: { :multipart => true, class: 'form-horizontal'}) do |f| %>
+	<%= f.input :title %>
+	<%= f.select :category_id, @categories %><br>
+	<%= f.input :summary, label:"Brief Description" %>
+	<%= f.input :description, as: :text %>
+	<%= f.input :image_url %>
+	<%= f.input :goal %>
+	<%end %>
 
 	<%= link_to 'Show', @project %>
 	<%= link_to 'Back', projects_path %>

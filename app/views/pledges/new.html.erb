@@ -1,0 +1,27 @@
+<div class="project-intro">
+<div class="container">
+
+<div class="row-pledges">
+	<div class="col-sm-5 col-sm-offset-2">
+		<h4>Selected Project</h4>
+		<p class="project-title"><%= link_to @project.title, project_path(@project) %></p>
+		
+			<div class="thumbnail">
+			<%= link_to image_tag(@project.image_url, alt: @project.title, class: 'img-responsive'), project_path(@project) %>
+			</div>
+		<p><%= @project.goal %></p>
+	</div>
+
+	<div class="pledges-box">
+		<div class= "col-sm-3 col-sm-offset-1">
+<%= render 'form' %>
+		
+		</div>
+	</div>
+</div>
+
+
+
+
+</div>
+</div>

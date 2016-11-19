@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115160736) do
+ActiveRecord::Schema.define(version: 20161119190438) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pledges", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.decimal  "amount"
+    t.date     "expiration_date"
+    t.string   "status"
+    t.string   "uuid"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "pledges", ["project_id"], name: "index_pledges_on_project_id"
+  add_index "pledges", ["user_id"], name: "index_pledges_on_user_id"
 
   create_table "projects", force: :cascade do |t|
     t.integer  "user_id"

@@ -3,11 +3,19 @@ Rails.application.routes.draw do
 
   get 'pages/about'
 
-  resources :projects 
+  resources :projects do
+    resources :pledges
+ end
   
   get 'projects/index'
 
   devise_for :users
+
+  devise_scope :user do
+  get 'login', to: 'devise/sessions#new'
+  end
+
+  #devise_for :users, controllers: {sessions: 'users/sessions'}
 
   get 'account' => 'pages#account'
 

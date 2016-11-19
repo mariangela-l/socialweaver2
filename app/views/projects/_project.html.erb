@@ -1,15 +1,17 @@
 <div class="col-md-4 col-sm-6 col-xs-12">
-	<div class="thumbnail">
-		<%= link_to image_tag(project.image_url, alt: project.title, class: 'responsive'), project_path(project) %>
-		<div class="caption">
-			<p><%= project.title %></p>
-			<p><%= project.summary %></p>
-			<p>Project goal <%= project.goal %><span class="label">days to go</span></p>
-			<p><%= link_to "More info", project_path(project), class: 'btn btn-success btn-offset-right' %></p>
-		</div>
+		<div class="clearfix visible-lg"></div>
+			<div class="thumbnail">
+	
+			<%= link_to image_tag(project.image_url, alt: project.title, class: 'img-responsive'), project_path(project) %>
+			<div class="caption">
+				<p><%= link_to project.title, project_path(project) %></p>
+				<p><%= project.category.name %></p>
+				<p>Project goal <%= project.goal %><span class="label">days to go</span></p>
+				<p><%= link_to "More info", project_path(project), class: 'btn btn-success btn-offset-right' %></p>
+			</div>
+		
 	</div>
 </div>
-
 
 
 

@@ -16,18 +16,22 @@
 				<%= image_tag @project.image_url, width: '100%', class: "img-responsive" %>
 			</div>
 			<div class="col-md-4">	
+
+				<% if user_signed_in?%>
+				<% if @project.user_id == current_user.id %>
 				<div class="project-mgmt">
 					<%= link_to 'Edit',   edit_project_path(@project) %>
 					<%= link_to 'Delete', project_path(@project), method: :delete, data: {confirm: "Are you sure?"} %>
 				</div><!-- these links should only be visibible to admin_user with cancancan-->
-				
+				<%end%>
+				<%end%>
 				<div class="statistics">		
 						<p class="project-subtitle">Total:</p><br>
 						<p class="project-subtitle">Goal: $<%= @project.goal.to_f %></p>
 						<p class="project-time">This project has few days to go</p>
 				</div><!--it can be rendered as partial if wish-->
 						
-						<p><%= link_to 'Back this Project','#', class: 'btn btn-success btn-lg btn-block' %></p>
+						<p><%= link_to 'Back this Project', new_project_pledge_path(@project), class: 'btn btn-success btn-lg btn-block' %></p>
 						<p><%= link_to 'Offer a Skill','#', class: 'btn btn-success btn-lg btn-block' %><p>
 	
 			</div> <!-- end of project statistics details box-->
@@ -38,7 +42,7 @@
 	<div class="container">
 			<div class="col-md-8">
 					<p class="project-subtitle">Location:</p>						
-					<p class="project-subtitle">Category:</p>
+					<p class="project-subtitle">Category:<%= @project.category.name %></p>
 					<br>
 					<p class="project-subtitle">About this project:</p>
 					<p class="project-description"><%= @project.description %></p>

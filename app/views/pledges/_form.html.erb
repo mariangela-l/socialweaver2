@@ -1,0 +1,11 @@
+<%= simple_form_for @pledge, url:"#", method: :get do |f| %>
+
+	<h4>How much will you pledge?</h4>
+
+	<fieldset>
+		<%= f.input :amount, placeholder: "enter your pledge amount:", input_html: {value: @project.try(:value), required: true} %>
+
+	</fieldset>
+
+<% end %>
+
