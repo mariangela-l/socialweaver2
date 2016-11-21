@@ -6,8 +6,8 @@ class CreateProjects < ActiveRecord::Migration
 			t.text :summary
 			t.text :description
 			t.string :image_url
-			t.references :location, index: true
-			t.references :category, index: true
+			t.references :location, index: true, foreign_key: true
+			t.references :category, index: true, foreign_key: true
 			t.references :skill, index: true
 			t.decimal :goal, precision: 8, scale: 2
 			t.datetime :expiration_date

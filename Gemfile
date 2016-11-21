@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
-
-
+gem 'dotenv-rails', :groups => [:development, :test]
+#For working with dates
+gem 'momentjs-rails'
+#For input description information in the project creation form
+gem 'bootstrap-wysihtml5-rails', github: 'nerian/bootstrap-wysihtml5-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record

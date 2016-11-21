@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'pages/about'
+  get 'account', to: 'pages#account'
+  get 'projects/index'
 
   resources :projects do
     resources :pledges
@@ -9,15 +11,16 @@ Rails.application.routes.draw do
   
   get 'projects/index'
 
-  devise_for :users
+  devise_for :users, :path => 'account', controllers: {confirmations: "confirmations" }
 
   devise_scope :user do
   get 'login', to: 'devise/sessions#new'
   end
 
+ 
+
   #devise_for :users, controllers: {sessions: 'users/sessions'}
 
-  get 'account' => 'pages#account'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

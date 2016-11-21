@@ -1,13 +1,12 @@
 <div class="container">
 	<div class="row">
-		<h1 class="text-center">Welcome, aboard!</h1><br>
-		
-	</div><br>
-	<div class="row">
+		<h1 class="text-center">Welcome, aboard!</h1>
 		
 		<div class="col-md-4">
 			
-				<h3 class="text-center">Your Projects</h3>				
+				<h3 class="text-center">Your Projects<%= link_to "New Project", new_project_path, class: "btn btn-default btn-sm" %>
+					
+				</h3>				
 					
 					<table class="table table-condensed table-striped">
 						<thead>
@@ -24,12 +23,11 @@
 								<td><%= project.id %></td>
 								<td><%= link_to project.title, project_path(project) %></td>
 								<td><%= project.goal %></td>
-								<td><%= link_to "View", "#" %></td>
+								<td><%= link_to "View Project Backers", "#", class: "btn btn-default btn-sm" %></td>
 							</tr>
 							<% end %>
 						</tbody>
 					</table>
-			
 		</div>
 	
 		<div class="col-md-4">
@@ -59,9 +57,9 @@
 		
 		</div>
 
-		<div class="col-md-6 text-center"><%= link_to "New Project", new_project_path, class: "btn btn-default btn-block" %></div>
 	</div>
-
-
 </div>
+
+
+
 

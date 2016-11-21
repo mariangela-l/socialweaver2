@@ -1,6 +1,30 @@
+@import "bootstrap-wysihtml5/bootstrap3-wysihtml5";
 @import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "projects.scss";
 @import "jumbotron.scss";
 @import "devise.scss";
+@import "pledges.scss";
+@import "pages.scss";
+
+.body{
+	background: #f4f7f9;
+	font-family: Benton,Helvetica,Arial,sans-serif;
+}
+.alert{
+	color: light-green;
+	text-style: center;
+	position: relative;
+	z-index: 1;
+	width: auto; 
+}
+
+.nav navbar-nav{
+	position: center;
+	color: light-green;
+	font-family: Benton,Helvetica,Arial,sans-serif;
+	font-size: 22px;
+	font-transform: uppercase;
+	width: auto;
+}

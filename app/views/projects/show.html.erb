@@ -7,7 +7,7 @@
 
 		<div class="row">
 			<div class="col-md-12 text-center">
-				<h2 class="project-title"><%= @project.title %></h2>
+				<h2><%= @project.title %></h2>
 			</div>	
 		</div>
 
@@ -15,6 +15,7 @@
 			<div class="col-md-8">
 				<%= image_tag @project.image_url, width: '100%', class: "img-responsive" %>
 			</div>
+			
 			<div class="col-md-4">	
 
 				<% if user_signed_in?%>
@@ -25,14 +26,41 @@
 				</div><!-- these links should only be visibible to admin_user with cancancan-->
 				<%end%>
 				<%end%>
-				<div class="statistics">		
-						<p class="project-subtitle">Total:</p><br>
-						<p class="project-subtitle">Goal: $<%= @project.goal.to_f %></p>
-						<p class="project-time">This project has few days to go</p>
-				</div><!--it can be rendered as partial if wish-->
+
+				<div class="project-info">		
+						<div class="project-bar">
+							<div class="progress">
+								<div class="progress-bar-sucess" role="progressbar" aria-valuenow="100%" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+							<span class="sr-only">100% Complete</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="val">
+								<p>100%<span>funded</span></p>
+						<div>
+
+					<div class="stats">
+						<div class="row-stats">
+							<div class="val">
+								<p>$1000 <span>pledged</span></p>
+							<div>
 						
-						<p><%= link_to 'Back this Project', new_project_pledge_path(@project), class: 'btn btn-success btn-lg btn-block' %></p>
-						<p><%= link_to 'Offer a Skill','#', class: 'btn btn-success btn-lg btn-block' %><p>
+							<div class="val">
+								<p>10 <span>days to go</span></p>
+							<div>
+						</div>
+							
+					</div>
+			
+				</div><!--it can be rendered as partial if wish-->
+				<br><br><br>
+
+				<div class="call-button text-center">
+						
+						<p><%= link_to 'Back this Project', new_project_pledge_path(@project), class: 'btn btn-success btn-lg btn-block' %></p><br>
+						<p><%= link_to 'Offer a Skill', "#", class: 'btn btn-success btn-lg btn-block' %></p>
+				</div>
 	
 			</div> <!-- end of project statistics details box-->
 		</div>
@@ -42,7 +70,7 @@
 	<div class="container">
 			<div class="col-md-8">
 					<p class="project-subtitle">Location:</p>						
-					<p class="project-subtitle">Category:<%= @project.category.name %></p>
+					<p class="project-subtitle">Category: <%= @project.category.name %></p>
 					<br>
 					<p class="project-subtitle">About this project:</p>
 					<p class="project-description"><%= @project.description %></p>

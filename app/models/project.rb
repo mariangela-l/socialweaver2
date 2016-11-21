@@ -6,6 +6,8 @@ class Project < ActiveRecord::Base
 	validates_presence_of :title, :summary, :description, :image_url, :goal
 
 
+
+
 	def self.search(search)
 		if search 
 			where(["title LIKE?", "%#{search}%"])

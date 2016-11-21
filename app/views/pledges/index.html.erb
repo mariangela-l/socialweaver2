@@ -1,12 +1,36 @@
-<h1> index page pledges </h1>
+<h1>pledges index -only project owner can see this: </h1>
 
 
 <div class="project-intro">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="table-responsive">
-					this should be a view to admin user only ??
+				<div class="table-responsive">				
+					
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Project</th>
+								<th>Pledge</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<%if @pledges.any? %>
+							<% @pledges.each do |pledge| %>
+							<%= render 'pledge', pledge: pledge %>
+							<% end %>
+							<% else %>
+
+							<tr>
+								<td colspan="4">There are no pledges available</td>
+							</tr>
+
+							<% end %>
+						</tbody>
+					</table>
+
 				</div>
 			</div>
 		</div>	

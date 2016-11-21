@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :show]
+	before_action :authenticate_user!, except: [:index, :show] #users are able to see all projects and individial /show page
 	before_action :set_project, only: [:show, :edit, :update, :destroy]
 
 
@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
 			@projects = Project.where(:category_id => @category_id)
 		end
 		#@projects = Project.all.order("created_at DESC")
-		#@displayed.projects = Project.take(3)
+		#@displayed.projects = Project.take(3) for a dynamic carroussel which I am not going to implement 
 	end
 
 	def show
@@ -68,7 +68,7 @@ class ProjectsController < ApplicationController
 
 private
 
-	def set_project
+	def set_project #gets the projects from the params for actions show, edit, update and destroy
 		@project = Project.find(params[:id])
 	end
 

@@ -1,10 +1,12 @@
 <%= simple_form_for(@project, html: { :multipart => true, class: 'form-horizontal'}) do |f| %>
 	<%= f.input :title %>
 	<%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a category")%><br>
-	<%= f.input :summary, label: false, placeholder: "brief description" %>
-	<%= f.input :description, as: :text %>
+	<%= f.input :summary, label: false, label:"Brief Description", placeholder: "brief description" %>
+	<%= f.input :description, as: :wysihtml5 %>
 	<%= f.input :image_url %>
 	<%= f.input :goal %>
+	<%= f.input :expiration_date%>
+	
 	
 
 	<div class="actions">

@@ -5,9 +5,10 @@
 	<%= f.input :title %>
 	<%= f.select :category_id, @categories %><br>
 	<%= f.input :summary, label:"Brief Description" %>
-	<%= f.input :description, as: :text %>
+	<%= f.input :description, as: :wysihtml5 %>
 	<%= f.input :image_url %>
 	<%= f.input :goal %>
+	<%= f.input :expiration_date %>
 	<%end %>
 
 	<%= link_to 'Show', @project %>
