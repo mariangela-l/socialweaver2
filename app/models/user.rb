@@ -9,14 +9,16 @@ class User < ActiveRecord::Base
 
   validates_presence_of :email
 
-
-  def self.from_omniauth(auth)where(provider: auth.provider, uid:auth.uid).first_or_create do |user|
-  	user.provider = auth.provider
-  	user.email=auth.info.email
-  	user.name=auth.info.name
-  	user.password=Devise.friendly-token[0,20]
-  	user.image=auth.info.image
+  def self.from_omniauth(auth)
+    p auth
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.name = auth.info.name
+      user.password = Devise.friendly_token[0,20]
+      user.image = auth.info.image
+    end
   end
+
 
   def self.new_with_sessions(params, session) #check if there is a session with devise user attributes
   	if session[ "devise.user_attributes" ]
@@ -33,4 +35,4 @@ class User < ActiveRecord::Base
   	super && provider.blank?
   end
 end
-end
+
