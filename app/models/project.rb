@@ -5,6 +5,9 @@ class Project < ActiveRecord::Base
 
 	validates_presence_of :title, :summary, :description, :image_url, :goal
 
+	has_attached_file :image
+	has_attached_file :resource
+
 
 
 

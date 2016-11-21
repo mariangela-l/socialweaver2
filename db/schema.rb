@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161119190438) do
+ActiveRecord::Schema.define(version: 20161121205758) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -42,11 +42,20 @@ ActiveRecord::Schema.define(version: 20161119190438) do
     t.integer  "location_id"
     t.integer  "category_id"
     t.integer  "skill_id"
-    t.decimal  "goal",            precision: 8, scale: 2
+    t.decimal  "goal",                  precision: 8, scale: 2
     t.datetime "expiration_date"
-    t.string   "status",                                  default: "pending"
-    t.datetime "created_at",                                                  null: false
-    t.datetime "updated_at",                                                  null: false
+    t.string   "status",                                        default: "pending"
+    t.datetime "created_at",                                                        null: false
+    t.datetime "updated_at",                                                        null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "resource_file_name"
+    t.string   "resource_content_type"
+    t.integer  "resource_file_size"
+    t.datetime "resource_updated_at"
+    t.string   "image"
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id"
@@ -67,6 +76,9 @@ ActiveRecord::Schema.define(version: 20161119190438) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "provider"
+    t.integer  "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

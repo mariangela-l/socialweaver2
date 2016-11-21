@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
   root 'pages#home'
 
-  get 'pages/about'
+  get 'about', to: 'pages#about'
   get 'account', to: 'pages#account'
   get 'projects/index'
 
   resources :projects do
     resources :pledges
- end
-  
-  get 'projects/index'
+ end 
 
-  devise_for :users, :path => 'account', controllers: {confirmations: "confirmations" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+
+  #devise_for :users, :path => 'account', controllers: {confirmations: "confirmations" }
 
   devise_scope :user do
   get 'login', to: 'devise/sessions#new'
