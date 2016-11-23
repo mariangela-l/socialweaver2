@@ -1,7 +1,8 @@
-<%= simple_form_for(@project, html: { :multipart => true, class: 'form-horizontal'}) do |f| %>
+<%= simple_form_for(@project, html: {:multipart => true, class: 'form-horizontal'}) do |f| %>
 	<%= f.input :title %>
+	<%= f.label :category %>
 	<%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a category")%><br>
-	<%= f.input :summary, label: false, label:"Brief Description", placeholder: "brief description" %>
+	<%= f.input :summary, label:"Brief Description", placeholder: "brief description" %>
 	<%= f.input :description, as: :wysihtml5 %>
 	<%= f.input :image, as: :file %>
 	<%= f.input :goal %>
@@ -13,3 +14,4 @@
 		<%= f.button :submit %>
 	</div>
 <% end %>
+<br>
