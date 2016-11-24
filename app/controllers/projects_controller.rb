@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def create #building out projects from the current user
-		@project=Project.create(project_params)
+		#@project=Project.create(project_params)
 		@project = current_user.projects.build(project_params)
 		@project.category_id = params[:category_id]
 

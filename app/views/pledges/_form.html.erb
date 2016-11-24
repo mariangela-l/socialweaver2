@@ -7,7 +7,7 @@
 		<%= simple_form_for @pledges, url: {controller: :pledges, action: :create}, method: :post do |f| %>
 		<fieldset>
 		<%= f.input :amount, placeholder: "enter your pledge amount:", input_html: {value: @project.try(:value), required: true} %>
-		<%= number_field_tag(:amount, value = nil, options = {:min => 5, :max => 50}) %>
+		
 		</fieldset>
 
 		<div class="actions">

@@ -4,16 +4,16 @@ class Pledge < ActiveRecord::Base
 
 	before_validation :generate_uuid!, :on => :create
 	validates_presence_of :amount,:user_id
-	#after_create :check_if_funded
+	after_create :check_if_funded
 
 	private
 
 
 #changes the project's status to "funded" if the total amount pledged is 
 #greater or equal to the project's goal.
-	#def check_if_funded 
-	#	project.funded! if project.total_amount >= project.goal
-	#end
+	def check_if_funded 
+		project.funded! if project.total_amount >= project.goal
+	end
 
 	def generate_uuid!
 		begin

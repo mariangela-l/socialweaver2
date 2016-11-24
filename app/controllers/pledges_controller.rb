@@ -20,8 +20,9 @@ class PledgesController < ApplicationController
 	end
 	
 	def create  
-
-	 @pledge = current_user.pledges.build(create_pledge_params)
+	 # @pledge = current_user.pledges.build(create_pledge_params)
+	 @project = Project.find_by_id(params[:project_id])
+	 @pledge = @project.pledges.create(amount: params[:pledge]["amount"], user: current_user)
 	  respond_to do |format|
 	    if @project.user != current_user &&
 	    	current_user == Project.find(@project)
@@ -29,18 +30,19 @@ class PledgesController < ApplicationController
 	        	format.html {render :new }
 	        		format.json { render json: @pledge.errors, status: :unprocessable_entity }
 	        	
-	        	else
-		        	@pledge.save
-					#current_user.update(project_id: result.pledge.id)
-		          	format.html { redirect_to project_pledge_path(@pledge), notice: "Your pledge was successfully created." }
-		        	format.json { render :show, status: :ok, location: @pledge }
- 
-	        		
-	      end     
-	    end
+    	else
+			#current_user.update(project_id: result.pledge.id)
+          	format.html { redirect_to project_pledge_path(@project, @pledge), notice: "Your pledge was successfully created." }
+        	# format.html { render :show }
+        	format.json { render :show, status: :ok, location: @pledge }
+	    end     
+	  end
 	end
 
-
+ def show
+ 	@project = Project.find_by_id(params[:project_id])
+ 	@pledge = Pledge.find_by_id(params[:id])
+ end
 
 	private
 
